@@ -22,5 +22,5 @@ object P34 extends App {
     helper(1, gcd(1, number), 0, Nil)
   }
 
-  println(EulersTotient(50))
+  println(EulersTotient(10090))
 }

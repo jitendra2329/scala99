@@ -1,7 +1,6 @@
 package com.knoldus
 
-object P10 extends App {
-
+object P11 extends App {
   private def pack[A](ls: List[A]): List[List[A]] = {
     if (ls.isEmpty) List(List())
     else {
@@ -11,9 +10,13 @@ object P10 extends App {
     }
   }
 
-  private def encode[A](ls: List[A]): List[(Int, A)] =
-    pack(ls) map { e => (e.length, e.head) }
+  private def encode[A](ls: List[A]): List[Any] =
+    pack(ls) map { e =>
+      val length = e.length
+
+      if (length > 1) (length, e.head)
+      else e.head
+    }
 
   println(encode(List('a', 'a', 'b', 'c', 'c', 'a')))
-
 }
